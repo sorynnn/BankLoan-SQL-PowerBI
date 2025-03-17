@@ -1,0 +1,302 @@
+SELECT * FROM financial_da
+
+--deleting unformatted columns
+ALTER TABLE financial_da
+DROP COLUMN issue_date2;
+
+ALTER TABLE financial_da
+DROP COLUMN last_credit_pull_date2;
+
+ALTER TABLE financial_da
+DROP COLUMN last_payment_date2;
+
+ALTER TABLE financial_da
+DROP COLUMN next_payment_date2;
+---------------------------------
+--Total Loan Applications
+SELECT COUNT(id) AS Total_Applications FROM financial_da
+
+--Total Loan Applications by Month
+SELECT COUNT(id) AS December_Applications FROM financial_da
+WHERE MONTH(issue_date) = 12
+
+SELECT COUNT(id) AS November_Applications FROM financial_da
+WHERE MONTH(issue_date) = 11
+
+SELECT COUNT(id) AS October_Applications FROM financial_da
+WHERE MONTH(issue_date) = 10
+
+SELECT COUNT(id) AS September_Applications FROM financial_da
+WHERE MONTH(issue_date) = 9
+
+SELECT COUNT(id) AS August_Applications FROM financial_da
+WHERE MONTH(issue_date) = 8
+
+SELECT COUNT(id) AS July_Applications FROM financial_da
+WHERE MONTH(issue_date) = 7
+
+SELECT COUNT(id) AS June_Applications FROM financial_da
+WHERE MONTH(issue_date) = 6
+
+SELECT COUNT(id) AS May_Applications FROM financial_da
+WHERE MONTH(issue_date) = 5
+
+SELECT COUNT(id) AS April_Applications FROM financial_da
+WHERE MONTH(issue_date) = 4
+
+SELECT COUNT(id) AS March_Applications FROM financial_da
+WHERE MONTH(issue_date) = 3
+
+SELECT COUNT(id) AS Febuary_Applications FROM financial_da
+WHERE MONTH(issue_date) = 2
+
+SELECT COUNT(id) AS January_Applications FROM financial_da
+WHERE MONTH(issue_date) = 1
+-----------------------------------------------------------
+--Total Funded Amount
+SELECT SUM(loan_amount) AS Total_Funded_Amount FROM financial_da
+
+SELECT SUM(loan_amount) AS Total_Funded_Amount_December FROM financial_da
+WHERE MONTH(issue_date) = 12
+
+SELECT SUM(loan_amount) AS Total_Funded_Amount_Novemeber FROM financial_da
+WHERE MONTH(issue_date) = 11
+
+SELECT SUM(loan_amount) AS Total_Funded_Amount_October FROM financial_da
+WHERE MONTH(issue_date) = 10
+
+SELECT SUM(loan_amount) AS Total_Funded_Amount_September FROM financial_da
+WHERE MONTH(issue_date) = 9
+
+SELECT SUM(loan_amount) AS Total_Funded_Amount_August FROM financial_da
+WHERE MONTH(issue_date) = 8
+
+SELECT SUM(loan_amount) AS Total_Funded_Amount_July FROM financial_da
+WHERE MONTH(issue_date) = 7
+
+SELECT SUM(loan_amount) AS Total_Funded_Amount_June FROM financial_da
+WHERE MONTH(issue_date) = 6
+
+SELECT SUM(loan_amount) AS Total_Funded_Amount_May FROM financial_da
+WHERE MONTH(issue_date) = 5
+
+SELECT SUM(loan_amount) AS Total_Funded_Amount_April FROM financial_da
+WHERE MONTH(issue_date) = 4
+
+SELECT SUM(loan_amount) AS Total_Funded_Amount_March FROM financial_da
+WHERE MONTH(issue_date) = 3
+
+SELECT SUM(loan_amount) AS Total_Funded_Amount_Febuary FROM financial_da
+WHERE MONTH(issue_date) = 2
+
+SELECT SUM(loan_amount) AS Total_Funded_Amount_January FROM financial_da
+WHERE MONTH(issue_date) = 1
+------------------------------------------------------------------------
+--Total Amount Recieved
+SELECT SUM(total_payment) FROM financial_da
+
+SELECT SUM(total_payment) AS Total_Amount_Recieved_December FROM financial_da
+WHERE MONTH(issue_date) = 12
+
+SELECT SUM(total_payment) AS Total_Amount_Recieved_November FROM financial_da
+WHERE MONTH(issue_date) = 11
+
+SELECT SUM(total_payment) AS Total_Amount_Recieved_October FROM financial_da
+WHERE MONTH(issue_date) = 10
+
+SELECT SUM(total_payment) AS Total_Amount_Recieved_September FROM financial_da
+WHERE MONTH(issue_date) = 9
+
+SELECT SUM(total_payment) AS Total_Amount_Recieved_August FROM financial_da
+WHERE MONTH(issue_date) = 8
+
+SELECT SUM(total_payment) AS Total_Amount_Recieved_July FROM financial_da
+WHERE MONTH(issue_date) = 7
+
+SELECT SUM(total_payment) AS Total_Amount_Recieved_June FROM financial_da
+WHERE MONTH(issue_date) = 6
+
+SELECT SUM(total_payment) AS Total_Amount_Recieved_May FROM financial_da
+WHERE MONTH(issue_date) = 5
+
+SELECT SUM(total_payment) AS Total_Amount_Recieved_April FROM financial_da
+WHERE MONTH(issue_date) = 4
+
+SELECT SUM(total_payment) AS Total_Amount_Recieved_March FROM financial_da
+WHERE MONTH(issue_date) = 3
+
+SELECT SUM(total_payment) AS Total_Amount_Recieved_Febuary FROM financial_da
+WHERE MONTH(issue_date) = 2
+
+SELECT SUM(total_payment) AS Total_Amount_Recieved_January FROM financial_da
+WHERE MONTH(issue_date) = 1
+------------------------------------------------------------------------------
+--Average Interest Rate
+SELECT * FROM financial_da
+
+SELECT AVG(int_rate) * 100 AS Average_Interest_rate FROM financial_da
+--Rounded:
+SELECT ROUND(AVG(int_rate * 100), 4) AS Rounded_AVG_Interest_rate FROM financial_da
+
+SELECT ROUND(AVG(int_rate * 100), 4) AS Rounded_AVG_Interest_rate_December FROM financial_da
+WHERE MONTH(issue_date) = 12
+
+SELECT ROUND(AVG(int_rate * 100), 4) AS Rounded_AVG_Interest_rate_November FROM financial_da
+WHERE MONTH(issue_date) = 11
+
+SELECT ROUND(AVG(int_rate * 100), 4) AS Rounded_AVG_Interest_rate_October FROM financial_da
+WHERE MONTH(issue_date) = 10
+
+SELECT ROUND(AVG(int_rate * 100), 4) AS Rounded_AVG_Interest_rate_September FROM financial_da
+WHERE MONTH(issue_date) = 9
+
+SELECT ROUND(AVG(int_rate * 100), 4) AS Rounded_AVG_Interest_rate_August FROM financial_da
+WHERE MONTH(issue_date) = 8
+
+SELECT ROUND(AVG(int_rate * 100), 4) AS Rounded_AVG_Interest_rate_July FROM financial_da
+WHERE MONTH(issue_date) = 7
+
+SELECT ROUND(AVG(int_rate * 100), 4) AS Rounded_AVG_Interest_rate_June FROM financial_da
+WHERE MONTH(issue_date) = 6
+
+SELECT ROUND(AVG(int_rate * 100), 4) AS Rounded_AVG_Interest_rate_May FROM financial_da
+WHERE MONTH(issue_date) = 5
+
+SELECT ROUND(AVG(int_rate * 100), 4) AS Rounded_AVG_Interest_rate_April FROM financial_da
+WHERE MONTH(issue_date) = 4
+
+SELECT ROUND(AVG(int_rate * 100), 4) AS Rounded_AVG_Interest_rate_May FROM financial_da
+WHERE MONTH(issue_date) = 3
+
+SELECT ROUND(AVG(int_rate * 100), 4) AS Rounded_AVG_Interest_rate_Febuary FROM financial_da
+WHERE MONTH(issue_date) = 2
+
+SELECT ROUND(AVG(int_rate * 100), 4) AS Rounded_AVG_Interest_rate_January FROM financial_da
+WHERE MONTH(issue_date) = 1
+--------------------------------------------------------------------------------------------
+--Average Debt to Income Ratio
+SELECT * FROM financial_da
+
+SELECT AVG(dti) * 100 AS Average_DTI FROM financial_da
+--Rounded
+SELECT ROUND(AVG(dti) * 100, 4) AS Average_DTI_Decemeber FROM financial_da
+WHEN MONTH(issue_date) = 12
+--------------------------------------------------------------------------------------------
+--Good loan/Bad loan
+--Good Loans:
+SELECT
+    (COUNT (CASE WHEN loan_status = 'Fully Paid' OR loan_status = 'Current' THEN id END) * 100 )
+    /
+    COUNT(id) AS Good_Loan_precentage
+FROM financial_da
+
+SELECT COUNT(id) AS Good_Loan_applications FROM financial_da
+WHERE loan_status = 'Fully Paid' OR loan_status = 'Current'
+
+SELECT SUM(loan_amount) AS Good_Loan_FundedAmount FROM financial_da
+WHERE loan_status = 'Fully Paid' OR loan_status = 'Current'
+
+SELECT SUM(total_payment) AS Good_Loan_RecievedAmount FROM financial_da
+WHERE loan_status = 'Fully Paid' OR loan_status = 'Current'
+
+--Bad Loans:
+SELECT
+    (COUNT (CASE WHEN loan_status = 'Charged Off' THEN id END) * 100 )
+    /
+    COUNT(id) AS Bad_Loan_precentage
+FROM financial_da
+
+SELECT COUNT(id) AS Bad_Loan_applications FROM financial_da
+WHERE loan_status = 'Charged Off'
+
+SELECT SUM(loan_amount) AS Bad_Loan_FundedAmount FROM financial_da
+WHERE loan_status = 'Charged Off'
+
+SELECT SUM(total_payment) AS Bad_Loan_RecievedAmount FROM financial_da
+WHERE loan_status = 'Charged Off'
+------------------------------------------------------------
+--Summary Statement
+
+SELECT
+        loan_status,
+        COUNT(id) AS Total_Loan_applications,
+        SUM(total_payment) AS Total_Amount_Recieved,
+        SUM(loan_amount) AS Total_Funded_Amount,
+        AVG(int_rate * 100) AS Interest_Rate,
+        AVG(dti * 100) AS DTI 
+    FROM financial_da
+    GROUP BY loan_status
+
+
+SELECT
+        loan_status,
+        SUM(total_payment) AS MTD_Total_Amount_Received,
+        SUM(loan_amount) AS MTD_Total_Funded_Amount
+    FROM financial_da
+    WHERE MONTH(issue_date) = 12
+    GROUP BY loan_status
+
+SELECT
+    MONTH(issue_date) AS Month_Number,
+    DATENAME(MONTH, issue_date) AS Month_Name,
+    COUNT(id) AS Total_Loan_applications,
+    SUM(loan_amount) AS Total_Funded_Amount,
+    SUM(total_payment) AS Total_Recieved_Amount
+FROM financial_da
+GROUP BY MONTH(issue_date), DATENAME(MONTH, issue_date)
+ORDER BY MONTH(issue_date)
+
+SELECT
+    address_state,
+    COUNT(id) AS Total_Loan_applications,
+    SUM(loan_amount) AS Total_Funded_Amount,
+    SUM(total_payment) AS Total_Recieved_Amount
+FROM financial_da
+GROUP BY address_state
+ORDER BY SUM(loan_amount) DESC
+
+SELECT
+    term,
+    COUNT(id) AS Total_Loan_applications,
+    SUM(loan_amount) AS Total_Funded_Amount,
+    SUM(total_payment) AS Total_Recieved_Amount
+FROM financial_da
+GROUP BY term
+ORDER BY term
+
+SELECT
+    emp_length,
+    COUNT(id) AS Total_Loan_applications,
+    SUM(loan_amount) AS Total_Funded_Amount,
+    SUM(total_payment) AS Total_Recieved_Amount
+FROM financial_da
+GROUP BY emp_length
+ORDER BY COUNT(id) DESC
+
+SELECT
+    purpose,
+    COUNT(id) AS Total_Loan_applications,
+    SUM(loan_amount) AS Total_Funded_Amount,
+    SUM(total_payment) AS Total_Recieved_Amount
+FROM financial_da
+GROUP BY purpose
+ORDER BY COUNT(id) DESC
+
+SELECT
+    home_ownership,
+    COUNT(id) AS Total_Loan_applications,
+    SUM(loan_amount) AS Total_Funded_Amount,
+    SUM(total_payment) AS Total_Recieved_Amount
+FROM financial_da
+GROUP BY home_ownership
+ORDER BY COUNT(id) DESC
+
+SELECT
+    home_ownership,
+    COUNT(id) AS Total_Loan_applications,
+    SUM(loan_amount) AS Total_Funded_Amount,
+    SUM(total_payment) AS Total_Recieved_Amount
+FROM financial_da
+WHERE grade = 'A'
+GROUP BY home_ownership
+ORDER BY COUNT(id) DESC
